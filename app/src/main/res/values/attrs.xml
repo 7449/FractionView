@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FractionView">
+        <attr name="ringRadius" format="integer" />
+        <attr name="outerRingWidth" format="dimension" />
+        <attr name="outerRingSelect" format="integer" />
+        <attr name="outerRingSelectAngle" format="integer" />
+        <attr name="outerRingSelectRing" format="integer" />
+        <attr name="outerRingSelectColor" format="color" />
+        <attr name="outerRingSelectAngleColor" format="color" />
+        <attr name="outerRingSpeed" format="integer" />
+        <attr name="innerRingWidth" format="dimension" />
+        <attr name="innerRingSelect" format="integer" />
+        <attr name="innerRingSelectAngle" format="integer" />
+        <attr name="innerRingSelectRing" format="integer" />
+        <attr name="innerRingSpeed" format="integer" />
+        <attr name="innerRingSelectColor" format="color" />
+        <attr name="innerRingSelectAngleColor" format="color" />
+        <attr name="textCrude" format="dimension" />
+        <attr name="textSize" format="dimension" />
+        <attr name="textColor" format="color" />
+    </declare-styleable>
+</resources>
