@@ -1,7 +1,6 @@
 package com.demo.fractionview.view;
 
 import android.animation.ValueAnimator;
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -111,21 +110,30 @@ public class FractionView extends View {
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setAntiAlias(true);
         setWillNotDraw(false);
+        mInnerRectF = new RectF();
+        mOuterRectF = new RectF();
     }
 
     public void setFractionVisibilityChanged(FractionVisibilityChanged fractionVisibilityChanged) {
         this.fractionVisibilityChanged = fractionVisibilityChanged;
     }
 
-    @SuppressLint("DrawAllocation")
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
-        Log("onLayout");
         int mViewX = getMeasuredWidth() / 2;
         int mViewY = getMeasuredHeight() / 2;
-        mInnerRectF = new RectF(mViewX - mRingRadius - mInnerRingWidth / 3, mViewY - mRingRadius - mInnerRingWidth / 3, mViewX + mRingRadius + mInnerRingWidth / 3, mViewY + mRingRadius + mInnerRingWidth / 3);
-        mOuterRectF = new RectF(mViewX - mRingRadius - mOuterRingWidth * 3, mViewY - mRingRadius - mOuterRingWidth * 3, mViewX + mRingRadius + mOuterRingWidth * 3, mViewY + mRingRadius + mOuterRingWidth * 3);
+        mInnerRectF.set(
+                mViewX - mRingRadius - mInnerRingWidth / 3,
+                mViewY - mRingRadius - mInnerRingWidth / 3,
+                mViewX + mRingRadius + mInnerRingWidth / 3,
+                mViewY + mRingRadius + mInnerRingWidth / 3);
+        mOuterRectF.set(
+                mViewX - mRingRadius - mOuterRingWidth * 3,
+                mViewY - mRingRadius - mOuterRingWidth * 3,
+                mViewX + mRingRadius + mOuterRingWidth * 3,
+                mViewY + mRingRadius + mOuterRingWidth * 3
+        );
         mOuterRingAngleWidth = (360 - mOuterRingSelect * mOuterRingSelectAngle) / mOuterRingSelect;
         mInnerRingAngleWidth = (360 - mInnerRingSelect * mInnerRingSelectAngle) / mInnerRingSelect;
     }
